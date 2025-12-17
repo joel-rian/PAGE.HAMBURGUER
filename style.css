@@ -1,41 +1,56 @@
-*{
+/* ============================================================
+   RESET & BASE
+============================================================ */
+* {
     margin: 0;
     padding: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
 }
 
-:root {
-    --primary: red;
-    --dark: black;
-    --gray: gray;
-    --light: white;
-    --radius: 16px;
-    --shadow: 0 10px 20px rgb(191, 191, 191);
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     line-height: 1.6;
-    color:black;
+    color: var(--dark);
 }
+
 a {
     text-decoration: none;
-    color: initial;
+    color: inherit;
 }
+
 img {
     max-width: 100%;
     display: block;
 }
+
 ul {
     list-style: none;
 }
-html{
-    scroll-behavior: smooth;
+
+/* ============================================================
+   VARIÁVEIS
+============================================================ */
+:root {
+    --primary: red;
+    --dark: black;
+    --gray: gray;
+    --light: white;
+
+    --radius: 16px;
+    --shadow: 0 10px 20px rgb(191, 191, 191);
 }
+
+/* ============================================================
+   BOTÕES
+============================================================ */
 .btn {
-    background: var(--primary);
     display: inline-block;
     padding: 12px 24px;
+    background: var(--primary);
     color: white;
     border-radius: 8px;
     font-weight: 600;
@@ -50,14 +65,17 @@ html{
 .btn-outline {
     background: transparent;
     border: 2px solid var(--primary);
-    color: var(--primary)
+    color: var(--primary);
 }
 
 .btn-outline:hover {
-    background-color: var(--primary);
+    background: var(--primary);
     color: white;
 }
 
+/* ============================================================
+   HEADER
+============================================================ */
 .logo {
     font-size: 30px;
     font-weight: 700;
@@ -89,20 +107,23 @@ header nav a:hover {
     color: var(--primary);
 }
 
-.hero-werapper {
+/* ============================================================
+   HERO
+============================================================ */
+.hero-wrapper {
     background: linear-gradient(white, gray, white);
     padding-top: 80px;
 }
 
 .hero {
+    max-width: 1100px;
+    margin: 100px auto 0;
+    padding: 60px 20px;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 60px;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    margin-top: 100px;
 }
 
 .hero h1 {
@@ -119,7 +140,7 @@ header nav a:hover {
 
 .hero img {
     border-radius: var(--radius);
-    box-sizing: 0 20px 60px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 .hero-buttons {
@@ -143,36 +164,36 @@ header nav a:hover {
     color: var(--primary);
 }
 
+/* ============================================================
+   CARDÁPIO
+============================================================ */
 .cardapio {
-padding: 80px 5%;
-text-align: center;
+    padding: 80px 5%;
+    text-align: center;
 }
 
 .cardapio h2 {
     font-size: 36px;
     margin-bottom: 10px;
 }
-.cardapio p {
-    color: var(--gray);
-    margin-bottom: 50px;
-}
 
-.menu-grid p {
+.cardapio > p {
     color: var(--gray);
     margin-bottom: 50px;
 }
 
 .menu-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .menu-grid li {
     position: relative;
-    background-color: white;
+    background: white;
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -189,7 +210,7 @@ text-align: center;
     position: absolute;
     top: 15px;
     left: 15px;
-    background-color: var(--primary);
+    background: var(--primary);
     color: white;
     padding: 5px 12px;
     border-radius: 20px;
@@ -222,18 +243,22 @@ text-align: center;
     padding: 10px;
 }
 
+/* ============================================================
+   SOBRE
+============================================================ */
 .sobre {
+    padding: 80px 5%;
+    background: var(--light);
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 60px;
-    padding: 80px 5%;
-    background-color: var(--light);
 }
 
 .sobre img {
     border-radius: var(--radius);
-    box-sizing: var(--shadow);
+    box-shadow: var(--shadow);
 }
 
 .sobre h2 {
@@ -252,6 +277,9 @@ text-align: center;
     gap: 15px;
 }
 
+/* ============================================================
+   CTA
+============================================================ */
 .cta {
     padding: 80px 5%;
     text-align: center;
@@ -270,16 +298,21 @@ text-align: center;
     margin-bottom: 30px;
 }
 
+/* ============================================================
+   FOOTER
+============================================================ */
 footer {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 40px;
     padding: 60px 5% 20px;
     background: var(--dark);
     color: white;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
 }
 
 footer .ass {
-grid-column: 1/-1;
-text-align: center;
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 30px;
 }
